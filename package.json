@@ -1,0 +1,22 @@
+{
+  "name": "puppeteer-demo",
+  "version": "1.0.0",
+  "description": "Puppeteer demo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/recoluan/puppeteer-demo.git"
+  },
+  "author": "reco_luan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/recoluan/puppeteer-demo/issues"
+  },
+  "homepage": "https://github.com/recoluan/puppeteer-demo#readme",
+  "dependencies": {
+    "puppeteer": "1.20.0"
+  }
+}
