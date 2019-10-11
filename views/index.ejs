@@ -11,17 +11,39 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-              <%= title %>
-          </a>
-          <form class="navbar-form navbar-left" role="search">
-            <button type="button" class="btn btn-primary get-info">获取订单</button>
-          </form>
+          <a class="navbar-brand" href="#"><%= title %></a>
         </div>
       </div>
     </nav>
-    
-    <ul class="list-group order-list"></ul>
+    <div class="panel panel-primary order-wrapper">
+      <div class="panel-heading">订单列表</div>
+      <div class="panel-body">
+        <button type="button" class="btn btn-primary get-info">获取订单</button>
+
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            选择主机厂
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">一汽</a></li>
+            <li><a href="#">上汽</a></li>
+            <li><a href="#">北汽</a></li>
+          </ul>
+        </div>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>标题</th>
+            <th>时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody class="order-list"></tbody>
+      </table>
+    </div>
     <script src="/js/index.js"></script>
   </body>
 </html>

@@ -12,21 +12,8 @@ h1 {
   font-size: 18px;
 }
 
-.order-list {
+.order-wrapper {
   margin: 40px auto;
-  max-width: 800px;
+  max-width: 960px!important;
   list-style: none;
-  li {
-    line-height: 30px;
-    color: #666;
-    font-size: 16px;
-    span {
-      display: inline-block;
-      border: 1px solid #888;
-      padding: 0 10px;
-      &:nth-of-type(3) {
-        cursor: pointer;
-      }
-    }
-  }
 }
