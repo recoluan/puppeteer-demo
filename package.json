@@ -1,10 +1,12 @@
 {
   "name": "puppeteer-demo",
   "version": "1.0.0",
-  "description": "Puppeteer demo.",
+  "description": "Puppeteer demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/www",
+    "start-w": "nodemon ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,19 @@
   },
   "homepage": "https://github.com/recoluan/puppeteer-demo#readme",
   "dependencies": {
-    "puppeteer": "1.20.0"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "node-sass": "^4.12.0",
+    "open": "^6.4.0",
+    "opn": "^6.0.0",
+    "puppeteer": "1.20.0",
+    "reco-fetch": "^1.0.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
   }
 }

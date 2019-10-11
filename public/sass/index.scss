@@ -1,0 +1,32 @@
+@import './common.scss';
+h1 {
+  color: red;
+  font-size: 30px;
+}
+.get-info {
+  width: 100px;
+  text-align: center;
+  line-height: 30px;
+  background: grey;
+  color: #fff;
+  font-size: 18px;
+}
+
+.order-list {
+  margin: 40px auto;
+  max-width: 800px;
+  list-style: none;
+  li {
+    line-height: 30px;
+    color: #666;
+    font-size: 16px;
+    span {
+      display: inline-block;
+      border: 1px solid #888;
+      padding: 0 10px;
+      &:nth-of-type(3) {
+        cursor: pointer;
+      }
+    }
+  }
+}
