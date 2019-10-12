@@ -46,14 +46,15 @@
     handleOrder (e) {
       const index = e.target.dataset.index
       const $oOrderList = $('.order-list')
-      $oOrderList.find('tr').eq(index).find('place-order').text('进行中').css({
+      $oOrderList.find('tr').eq(index).find('.place-order').text('进行中')
+      $oOrderList.find('tr').eq(index).find('.place-order').css({
         disabled: 'disabled'
       })
       
       recoFetch(`/handleOrder/${index}`).then(res => {
         const overIndex = res.data.index
         alert(`订单${overIndex}：下单成功！`)
-        $oOrderList.find('tr').eq(overIndex).find('place-order').text('完成')
+        $oOrderList.find('tr').eq(overIndex).find('.place-order').text('完成')
         $oOrderList.find('tr').eq(overIndex).css({
           background: '#f2f2f2'
         })
