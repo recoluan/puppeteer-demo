@@ -10,10 +10,28 @@
   HandleOrder.prototype = {
     init () {
       this.bindEvents()
+      this.initHostBusiness()
     },
     bindEvents () {
       this.$oGetInfo.on('click', this.getInfo.bind(this))
       this.$oHostBusiness.on('click', this.getHostBusiness.bind(this))
+    },
+    // 初始化主机厂商
+    initHostBusiness () {
+      const business = config.business
+      
+      let domStr = ''
+      for(let i = 0, len = business.length; i < len; i++) {
+        domStr = domStr + `<li><a data-id="${business[i].key}">${business[i].name}</a></li>`
+      }
+      this.$oHostBusiness.html(domStr)
+    },
+    // 获取主机厂商
+    getHostBusiness (e) {
+      const id = e.target.dataset.id
+      const  text = e.target.outerText
+      $('.order-wrapper .screen-wrapper button').html(`${text}<span class="caret"></span>`)
+      this.id = id
     },
     // 获取订单列表
     getInfo () {
@@ -21,7 +39,7 @@
         alert('请先选择主机厂商')
         return
       }
-      recoFetch('/getInfo').then(res => {
+      recoFetch(`/getInfo/${this.id}`).then(res => {
         const data = res.data
         this.initPlaceOrder(data)
       })
@@ -40,7 +58,7 @@
       this.$oOrderList.html(domStr)
 
       const $oBtnPlaceOrder = this.$oOrderList.find('tr .place-order')
-      $oBtnPlaceOrder.on('click', this.handleOrder)
+      $oBtnPlaceOrder.on('click', this.handleOrder.bind(this))
     },
     // 下单
     handleOrder (e) {
@@ -51,7 +69,7 @@
         disabled: 'disabled'
       })
       
-      recoFetch(`/handleOrder/${index}`).then(res => {
+      recoFetch(`/handleOrder/${index}/${this.id}`).then(res => {
         const overIndex = res.data.index
         alert(`订单${overIndex}：下单成功！`)
         $oOrderList.find('tr').eq(overIndex).find('.place-order').text('完成')
@@ -59,13 +77,6 @@
           background: '#f2f2f2'
         })
       })
-    },
-    // 获取主机厂商
-    getHostBusiness (e) {
-      const id = e.target.dataset.id
-      const  text = e.target.outerText
-      $('.order-wrapper .screen-wrapper button').html(`${text}<span class="caret"></span>`)
-      this.id = id
     }
   }
 
