@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var example = require('../puppeteer/example')
+var example = require('../puppeteer/baiduSearch')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
